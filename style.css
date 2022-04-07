@@ -1,0 +1,139 @@
+:root {
+    --background-color: #d3d3d3;
+    --font-color: #000;
+    --header-background-color: #f6f6f6;
+    --header-font-color: #000;
+    --field-background-color: #e6e6e6;
+    --field-background-color-tie: rgb(240, 187, 89);
+    --field-background-color-win: rgb(157, 240, 89);
+    --field-background-color-hover: #8d8d8d;
+    --border-color: #000;
+    --button-background-color: rgb(104, 177, 211);
+    --button-background-color-hover: rgb(52, 121, 153);
+    --button-background-color-active: rgb(52, 121, 153);
+    --font: 'Work Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+html{
+    /* Footer support */
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+.btn {
+    background-color: var(--button-background-color);
+    padding: 2rem 5rem;
+    border-radius: 20px;
+    border: none;
+    font-family: var(--font);
+    font-size: 2rem;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--button-background-color-hover);
+    transform: translateY(0.25em);
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--header-background-color);
+}
+
+
+/* MAIN */
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 454px;
+    height: 454px;
+    border: 2px solid var(--border-color);
+    margin: 0 auto;
+}
+
+.cell {
+    width: 150px;
+    height: 150px;
+    border: 1px solid var(--border-color);
+    background-color: var(--field-background-color);
+    font-size: 100px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell-tie {
+    background-color: var(--field-background-color-tie);
+}
+
+.cell-win {
+    background-color: var(--field-background-color-win);
+}
+
+
+
+
+form {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-group, h3 {
+    padding-bottom: 2rem;
+}
+
+input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+
+.place {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hidden {
+    display: none;
+}
