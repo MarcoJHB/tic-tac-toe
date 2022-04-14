@@ -18,7 +18,7 @@
 
 const playerFactory = (name, mark) => {
   const playTurn = (board, cell) => {
-    const idx = board.cells.findIndex(position => position === cell);
+    const idx = board.cells.findIndex((position) => position === cell);
     if (board.boardArray[idx] === "") {
       board.render();
       return idx;
@@ -73,11 +73,9 @@ const boardModule = (() => {
         boardArray[combo[0]] === boardArray[combo[2]]
       ) {
         winner = "current";
-        document.querySelectorAll(".cell").forEach(cell => cell.classList.add("cell-win"));
+        document.querySelectorAll(".cell").forEach((cell) => cell.classList.add("cell-win"));
       }
     });
-
-    
 
     return winner || (boardArray.includes("") ? null : "Tie");
   };
@@ -142,10 +140,26 @@ const gamePlay = (() => {
     e.preventDefault();
     if (playerOneName.value !== "" && playerTwoName.value !== "") {
       gameInit();
-      form.classList.add("hidden");
+      form.classList.add("transition");
+      const transition = document.querySelector(".transition");
+      const myTimeout = setTimeout(hideScreen, 500);
+      function hideScreen() {
+        form.classList.add("hidden");
+      }
       document.querySelector(".place").classList.remove("hidden");
+
     } else {
-      window.location.reload();
+      playerOneName.value = "Player One";
+      playerTwoName.value = "Player Two";
+      gameInit();
+      form.classList.add("transition");
+      console.log("TRANSITION START!");
+      const transition = document.querySelector(".transition");
+      const myTimeout = setTimeout(hideScreen, 500);
+      function hideScreen() {
+        form.classList.add("hidden");
+      }
+      document.querySelector(".place").classList.remove("hidden");
     }
   });
 
